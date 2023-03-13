@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище ComputerCompanyModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Assembling">
+    <Key>
+      <PropertyRef Name="ID_Technique" />
+      <PropertyRef Name="ID_Component" />
+    </Key>
+    <Property Name="ID_Technique" Type="int" Nullable="false" />
+    <Property Name="ID_Component" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" />
+  </EntityType>
+  <EntityType Name="Authorization">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="70" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Component">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_ComponentType" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="Manufacturer" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ComponentType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ComponentType" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Dealer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="PaymentTerms" Type="nvarchar" MaxLength="80" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="DealStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="70" />
+    <Property Name="BirthDate" Type="date" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="ID_Post" Type="int" Nullable="false" />
+    <Property Name="Salary" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Employee" Type="int" Nullable="false" />
+    <Property Name="ID_Client" Type="int" Nullable="false" />
+    <Property Name="ID_Technique" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="ID_OrderType" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Purchase">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Dealer" Type="int" Nullable="false" />
+    <Property Name="ID_Component" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="ID_DealStatus" Type="int" Nullable="false" />
+    <Property Name="Price" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Repair">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Employee" Type="int" Nullable="false" />
+    <Property Name="ID_Technique" Type="int" Nullable="false" />
+    <Property Name="ID_Client" Type="int" Nullable="false" />
+    <Property Name="ID_RepairResult" Type="int" Nullable="false" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RepairResult">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Result" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Technique">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="70" Nullable="false" />
+    <Property Name="SalePrice" Type="money" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Testing">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Technique" Type="int" Nullable="false" />
+    <Property Name="ID_TestingResult" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TestingResult">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Result" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Assembling_Component">
+    <End Role="Component" Type="Self.Component" Multiplicity="1" />
+    <End Role="Assembling" Type="Self.Assembling" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Component">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Assembling">
+        <PropertyRef Name="ID_Component" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Assembling_Technique">
+    <End Role="Technique" Type="Self.Technique" Multiplicity="1" />
+    <End Role="Assembling" Type="Self.Assembling" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Technique">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Assembling">
+        <PropertyRef Name="ID_Technique" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Authorization_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Authorization" Type="Self.Authorization" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Authorization">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Component_ComponentType">
+    <End Role="ComponentType" Type="Self.ComponentType" Multiplicity="1" />
+    <End Role="Component" Type="Self.Component" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ComponentType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Component">
+        <PropertyRef Name="ID_ComponentType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Post1">
+    <End Role="Post" Type="Self.Post" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="ID_Post" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ID_Client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ID_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_OrderType">
+    <End Role="OrderType" Type="Self.OrderType" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ID_OrderType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Technique">
+    <End Role="Technique" Type="Self.Technique" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Technique">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ID_Technique" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_Component">
+    <End Role="Component" Type="Self.Component" Multiplicity="1" />
+    <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Component">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="ID_Component" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_Dealer">
+    <End Role="Dealer" Type="Self.Dealer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dealer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="ID_Dealer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Purchase_DealStatus">
+    <End Role="DealStatus" Type="Self.DealStatus" Multiplicity="1" />
+    <End Role="Purchase" Type="Self.Purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DealStatus">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Purchase">
+        <PropertyRef Name="ID_DealStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Repair_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Repair" Type="Self.Repair" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Repair">
+        <PropertyRef Name="ID_Client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Repair_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Repair" Type="Self.Repair" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Repair">
+        <PropertyRef Name="ID_Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Repair_RepairResult">
+    <End Role="RepairResult" Type="Self.RepairResult" Multiplicity="1" />
+    <End Role="Repair" Type="Self.Repair" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RepairResult">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Repair">
+        <PropertyRef Name="ID_RepairResult" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Testing_Technique">
+    <End Role="Technique" Type="Self.Technique" Multiplicity="1" />
+    <End Role="Testing" Type="Self.Testing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Technique">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Testing">
+        <PropertyRef Name="ID_Technique" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Testing_TestingResult">
+    <End Role="TestingResult" Type="Self.TestingResult" Multiplicity="1" />
+    <End Role="Testing" Type="Self.Testing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TestingResult">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Testing">
+        <PropertyRef Name="ID_TestingResult" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище ComputerCompanyModelContainer">
+    <EntitySet Name="Assembling" EntityType="Self.Assembling" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Authorization" EntityType="Self.Authorization" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Component" EntityType="Self.Component" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ComponentType" EntityType="Self.ComponentType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dealer" EntityType="Self.Dealer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DealStatus" EntityType="Self.DealStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderType" EntityType="Self.OrderType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Purchase" EntityType="Self.Purchase" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Repair" EntityType="Self.Repair" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RepairResult" EntityType="Self.RepairResult" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Technique" EntityType="Self.Technique" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Testing" EntityType="Self.Testing" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TestingResult" EntityType="Self.TestingResult" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Assembling_Component" Association="Self.FK_Assembling_Component">
+      <End Role="Component" EntitySet="Component" />
+      <End Role="Assembling" EntitySet="Assembling" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Assembling_Technique" Association="Self.FK_Assembling_Technique">
+      <End Role="Technique" EntitySet="Technique" />
+      <End Role="Assembling" EntitySet="Assembling" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Authorization_Employee" Association="Self.FK_Authorization_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Authorization" EntitySet="Authorization" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Component_ComponentType" Association="Self.FK_Component_ComponentType">
+      <End Role="ComponentType" EntitySet="ComponentType" />
+      <End Role="Component" EntitySet="Component" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Post1" Association="Self.FK_Employee_Post1">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Client" Association="Self.FK_Order_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Employee" Association="Self.FK_Order_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_OrderType" Association="Self.FK_Order_OrderType">
+      <End Role="OrderType" EntitySet="OrderType" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Technique" Association="Self.FK_Order_Technique">
+      <End Role="Technique" EntitySet="Technique" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_Component" Association="Self.FK_Purchase_Component">
+      <End Role="Component" EntitySet="Component" />
+      <End Role="Purchase" EntitySet="Purchase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_Dealer" Association="Self.FK_Purchase_Dealer">
+      <End Role="Dealer" EntitySet="Dealer" />
+      <End Role="Purchase" EntitySet="Purchase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Purchase_DealStatus" Association="Self.FK_Purchase_DealStatus">
+      <End Role="DealStatus" EntitySet="DealStatus" />
+      <End Role="Purchase" EntitySet="Purchase" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Repair_Client" Association="Self.FK_Repair_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Repair" EntitySet="Repair" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Repair_Employee" Association="Self.FK_Repair_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Repair" EntitySet="Repair" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Repair_RepairResult" Association="Self.FK_Repair_RepairResult">
+      <End Role="RepairResult" EntitySet="RepairResult" />
+      <End Role="Repair" EntitySet="Repair" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Testing_Technique" Association="Self.FK_Testing_Technique">
+      <End Role="Technique" EntitySet="Technique" />
+      <End Role="Testing" EntitySet="Testing" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Testing_TestingResult" Association="Self.FK_Testing_TestingResult">
+      <End Role="TestingResult" EntitySet="TestingResult" />
+      <End Role="Testing" EntitySet="Testing" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

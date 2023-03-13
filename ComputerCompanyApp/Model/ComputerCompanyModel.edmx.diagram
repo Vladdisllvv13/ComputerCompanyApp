@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7e5ddbb12a84447f92de3c37839e8f3f" Name="Diagram1">
+        <EntityTypeShape EntityType="ComputerCompanyModel.Assembling" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerCompanyModel.Authorization" Width="1.5" PointX="6" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerCompanyModel.Client" Width="1.5" PointX="3.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerCompanyModel.Component" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerCompanyModel.ComponentType" Width="1.5" PointX="1.5" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerCompanyModel.Dealer" Width="1.5" PointX="6.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerCompanyModel.DealStatus" Width="1.5" PointX="6.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerCompanyModel.Employee" Width="1.5" PointX="3.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerCompanyModel.Order" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerCompanyModel.OrderType" Width="1.5" PointX="3.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerCompanyModel.Post" Width="1.5" PointX="1.5" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerCompanyModel.Purchase" Width="1.5" PointX="9" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerCompanyModel.Repair" Width="1.5" PointX="6" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerCompanyModel.RepairResult" Width="1.5" PointX="3.75" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerCompanyModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerCompanyModel.Technique" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerCompanyModel.Testing" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComputerCompanyModel.TestingResult" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <AssociationConnector Association="ComputerCompanyModel.FK_Assembling_Component" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerCompanyModel.FK_Assembling_Technique" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerCompanyModel.FK_Authorization_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerCompanyModel.FK_Order_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerCompanyModel.FK_Repair_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerCompanyModel.FK_Component_ComponentType" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerCompanyModel.FK_Purchase_Component" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerCompanyModel.FK_Purchase_Dealer" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerCompanyModel.FK_Purchase_DealStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerCompanyModel.FK_Employee_Post1" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerCompanyModel.FK_Order_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerCompanyModel.FK_Repair_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerCompanyModel.FK_Order_OrderType" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerCompanyModel.FK_Order_Technique" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerCompanyModel.FK_Repair_RepairResult" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerCompanyModel.FK_Testing_Technique" ManuallyRouted="false" />
+        <AssociationConnector Association="ComputerCompanyModel.FK_Testing_TestingResult" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
