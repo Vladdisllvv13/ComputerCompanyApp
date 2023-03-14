@@ -230,6 +230,7 @@
       <DependentUpon>ComputerCompanyModel.edmx</DependentUpon>
       <LastGenOutput>ComputerCompanyModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\pc.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

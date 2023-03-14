@@ -19,14 +19,14 @@
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
         <Label Content="Комплектующие" FontSize="26" Foreground="White" FontFamily="Bahnschrift" Height="38" VerticalAlignment="Top" HorizontalAlignment="Center" Width="211" Margin="0,21,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1"/>
-        <Label Content="Тип" FontSize="17" Foreground="White" FontFamily="Bahnschrift" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="175" Margin="75,19,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.Row="1"/>
+        <Label Content="Тип *" FontSize="17" Foreground="White" FontFamily="Bahnschrift" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="175" Margin="75,19,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.Row="1"/>
         <ComboBox SelectedItem="{Binding ComponentType}" x:Name="cb_component" FontSize="18" FontFamily="Bahnschrift Light" Grid.Row="1" Grid.Column="1" Margin="25,10,25,240" Height="30" Width="250" DisplayMemberPath="ComponentType1"/>
         <TextBox Text="{Binding Name}" x:Name="tb_name" FontSize="18" FontFamily="Bahnschrift Light" Grid.Row="1" Grid.Column="1" Margin="25,64,25,186" Height="30" Width="250"/>
         <TextBox Text="{Binding Manufacturer}" x:Name="tb_manufacturer" FontSize="18" FontFamily="Bahnschrift Light" Grid.Row="1" Grid.Column="1" Margin="25,121,25,129" Height="30" Width="250"/>
         <Button Name="bt_addComponent" Grid.Column="1" Content="Сохранить" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top" Width="250" Height="50" FontFamily="Bahnschrift" FontSize="20" Background="#FFA377D0" Foreground="White" Margin="0,290,0,0" Click="bt_addComponent_Click"/>
-        <Label Content="Название" FontSize="17" Foreground="White" FontFamily="Bahnschrift" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="175" Margin="75,73,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.Row="1"/>
-        <Label Content="Производитель" FontSize="17" Foreground="White" FontFamily="Bahnschrift" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="175" Margin="75,130,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.Row="1"/>
-        <Label Content="Количество" FontSize="17" Foreground="White" FontFamily="Bahnschrift" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="175" Margin="75,185,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.Row="1"/>
+        <Label Content="Название *" FontSize="17" Foreground="White" FontFamily="Bahnschrift" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="175" Margin="75,73,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.Row="1"/>
+        <Label Content="Производитель *" FontSize="17" Foreground="White" FontFamily="Bahnschrift" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="175" Margin="75,130,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.Row="1"/>
+        <Label Content="Количество *" FontSize="17" Foreground="White" FontFamily="Bahnschrift" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="175" Margin="75,185,0,0" RenderTransformOrigin="0.5,0.5" Grid.Column="1" Grid.Row="1"/>
         <TextBox Text="{Binding Amount}" x:Name="tb_amount_phoneNumber_Copy" FontSize="18" FontFamily="Bahnschrift Light" Grid.Row="1" Grid.Column="1" Margin="75,211,75,109" Height="30" Width="250"/>
     </Grid>
 </Window>

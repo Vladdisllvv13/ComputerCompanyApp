@@ -21,23 +21,23 @@ namespace ComputerCompanyApp
     /// </summary>
     public partial class AssemblerWindow : Window
     {
-        ComputerCompanyEntities1 ent = new ComputerCompanyEntities1();
 
         public AssemblerWindow()
         {
             InitializeComponent();
-        }
-
-        private void AssemblerWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            var techniqueQuery = from technique in ent.Technique select new {technique.ID, technique.Name, technique.SalePrice, technique.Amount};
-            dg_Technique.ItemsSource = techniqueQuery.ToList();
+            UpdateTables();
         }
 
         private void AddTechnique_Click(object sender, RoutedEventArgs e)
         {
             AddTechniqueWindow window = new AddTechniqueWindow();
+            window.Owner = this;
             window.Show();
+        }
+
+        public void UpdateTables()
+        {
+            dg_Technique.ItemsSource = ComputerCompanyEntities1.GetContext().Technique.ToList();
         }
     }
 }

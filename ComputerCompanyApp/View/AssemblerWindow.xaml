@@ -5,23 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComputerCompanyApp"
         mc:Ignorable="d"
-        Title="AssemblerWindow" Height="700" Width="1080" Background="#FF292829" WindowStartupLocation="CenterScreen" Loaded="AssemblerWindow_Loaded" >
+        Title="AssemblerWindow" Height="700" Width="700" Background="#FF292829" WindowStartupLocation="CenterScreen" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="80*"/>
-            <ColumnDefinition Width="900"/>
+            <ColumnDefinition Width="500"/>
             <ColumnDefinition Width="80*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="200*"/>
-            <RowDefinition Height="300"/>
-            <RowDefinition Height="150"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="400"/>
+            <RowDefinition Height="80"/>
             <RowDefinition Height="100*"/>
         </Grid.RowDefinitions>
-        <DataGrid Name="dg_Technique"  Grid.Column="1" Grid.Row="1" d:ItemsSource="{d:SampleData ItemCount=5}" Height="280" VerticalAlignment="Center" HorizontalAlignment="Center" Width="680"/>
-        <Button Name="bt_addTechnique" Width="200" Height="40" Content="Добавить технику" FontFamily="Bahnschrift" FontSize="16" Background="#FFA377D0" Foreground="White" Grid.Column="1" HorizontalAlignment="Center" Margin="0,0,0,100" Grid.Row="2" VerticalAlignment="Bottom" Click="AddTechnique_Click"/>
-        <Rectangle Fill="#FFA377D0" Height="100" VerticalAlignment="Center" Grid.ColumnSpan="3" HorizontalAlignment="Right" Width="1080" Margin="0,0,-1,0"/>
-        <Label Grid.Column="1" Content="Сборщик техники" FontSize="32" Foreground="White" FontFamily="Bahnschrift" Margin="574,44,0,0" Height="48" VerticalAlignment="Top" HorizontalAlignment="Left" Width="290"/>
-        <Label Grid.Column="1" Content="Компьютерная компания" FontSize="36" Foreground="White" FontFamily="Bahnschrift" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,431,49"/>
+        <DataGrid Name="dg_Technique" AutoGenerateColumns="False" IsReadOnly="True"  Grid.Column="1" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=5}" Height="340" VerticalAlignment="Top" HorizontalAlignment="Center" Width="348" Margin="0,50,0,0" FontFamily="Bahnschrift" FontSize="12" Background="#FFA377D0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Стоимость продажи" Binding="{Binding SalePrice}"/>
+                <DataGridTextColumn Header="Количество" Binding="{Binding Amount}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Name="bt_addTechnique" Width="200" Height="40" Content="Добавить технику" FontFamily="Bahnschrift" FontSize="16" Background="#FFA377D0" Foreground="White" Grid.Column="1" HorizontalAlignment="Left" Margin="160,0,0,20" Grid.Row="3" VerticalAlignment="Bottom" Click="AddTechnique_Click"/>
+        <Rectangle Grid.Row="1" Fill="#FFA377D0" Height="80" VerticalAlignment="Center" HorizontalAlignment="Center" Width="700" Grid.Column="1"/>
+        <Label Grid.Column="1" Grid.Row="1" Content="Сборщик техники" FontSize="30" Foreground="White" FontFamily="Bahnschrift" Height="48" VerticalAlignment="Center" HorizontalAlignment="Left" Width="280" RenderTransformOrigin="0.5,0.5" Margin="120,0,0,0"/>
+        <Image Source="/Resources/pc.png" Grid.Column="1" HorizontalAlignment="Left" Height="48" Margin="10,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="64" RenderTransformOrigin="0.806,0.638" />
+        <Label Grid.Column="1" Grid.Row="2" Content="Техника" FontSize="20" Foreground="White" FontFamily="Bahnschrift" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="180" RenderTransformOrigin="0.5,0.5" Margin="80,10,0,0"/>
+
     </Grid>
 </Window>

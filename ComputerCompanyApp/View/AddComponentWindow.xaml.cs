@@ -36,8 +36,12 @@ namespace ComputerCompanyApp.View
         {
             StringBuilder errors = new StringBuilder();
 
-            if (_currentComponent.Name == null)
+            if (string.IsNullOrWhiteSpace(_currentComponent.Name) || string.IsNullOrWhiteSpace(_currentComponent.Manufacturer))
                 errors.AppendLine("Заполните все необходимые поля");
+            if (_currentComponent.Amount < 1 || _currentComponent.Amount > 100)
+                errors.AppendLine("Количество должно быть в диапазоне 1-100");
+            if (_currentComponent.ComponentType == null)
+                errors.AppendLine("Выберите тип компонента");
 
             if (errors.Length > 0)
             {
@@ -48,7 +52,10 @@ namespace ComputerCompanyApp.View
             {
                 try
                 {
-                    ComputerCompanyEntities1.GetContext().Component.Add(_currentComponent);
+                    if (_currentComponent.ID == 0)
+                    {
+                        ComputerCompanyEntities1.GetContext().Component.Add(_currentComponent);
+                    }
                     ComputerCompanyEntities1.GetContext().SaveChanges();
                     MessageBox.Show("Сохранено");
                     (Owner as AdminWindow).UpdateTables();

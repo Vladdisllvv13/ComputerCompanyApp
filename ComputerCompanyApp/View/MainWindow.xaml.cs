@@ -22,6 +22,7 @@ namespace ComputerCompanyApp
     public partial class MainWindow : Window
     {
         CompanyAuthorization authorization = new CompanyAuthorization();
+
         public MainWindow()
         {
             InitializeComponent();
